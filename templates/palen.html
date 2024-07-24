@@ -1,0 +1,92 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .game-list {
+            margin-top: 20px;
+        }
+        .game-list a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 5px;
+            text-decoration: none;
+            color: #333;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .game-list a:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Palindrome Checker</h1>
+        <form method="post" action="/check_palindrome">
+            <input type="text" name="_userinput" placeholder="Enter a string to check" required>
+            <input type="submit" value="Check Palindrome">
+        </form>
+        
+        {% if _msg %}
+        <div class="result">
+            <p>{{ _msg }}</p>
+        </div>
+        {% endif %}
+
+        <div class="game-list">
+            <a href="/">Home</a>
+        </div>
+    </div>
+</body>
+</html>

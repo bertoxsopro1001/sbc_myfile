@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guessing Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .win {
+            color: green;
+        }
+        .partial-win {
+            color: orange;
+        }
+        .lose {
+            color: red;
+        }
+        .error {
+            color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Result</h1>
+        <p>
+            {% if msg == "You win" or msg == "Partial win" or msg == "You Lose!" %}
+                Your combination - {{ UserBet }} <br> Result - {{ result }}
+            {% endif %}
+        </p>
+        
+        <p class="message text-center">
+            {% if msg == "You win" %}
+                <span class="win">{{ msg }}</span>
+            {% elif msg == "Partial win" %}
+                <span class="partial-win">{{ msg }}</span>
+            {% elif msg == "You Lose!" %}
+                <span class="lose">{{ msg }}</span>
+            {% elif msg == "Input 3 numbers only" %}
+                <span class="error">{{ msg }}</span>
+            {% else %}
+             <span class="error">Invalid input</span>
+            {% endif %}
+        </p>
+        <a href="/Number_Guessing">Play Again</a>
+        <br>
+        <a href="/">Home</a>
+    </div>
+</body>
+</html>
